@@ -1,0 +1,230 @@
+/* Menu Item Expand Animation Styles */
+
+/* ============================================
+   1. 菜单容器动画
+   ============================================ */
+
+/* 菜单向左滑出 - 提高选择器优先级 */
+.menu-container.menu-animating.menu-animating {
+    transition: transform 2s ease !important;
+}
+
+.menu-container.menu-slide-left.menu-slide-left {
+    /* 移动到完全离开屏幕左侧
+       menu-container: left:45%, width:35%
+       要完全移出屏幕左侧，需要移动: -(left + width) = -(45% + 35%) ≈ -130vw
+    */
+    transform: translate3d(-130vw, 0, 0) !important;
+}
+
+/* ============================================
+   2. 背景动画
+   ============================================ */
+
+/* 固定背景，不移动 */
+.background.background-animating {
+    /* transition: transform 2s ease; */
+}
+
+.background.background-move-left {
+    /* transform: translate3d(-200px, 0, 0); */
+}
+
+/* ============================================
+   3. 文本容器动画
+   ============================================ */
+
+/* 文本容器从下到上卷起消失 */
+#textcontainer.text-animating {
+    transition: clip-path 2s ease;
+    clip-path: inset(0 0 0 0);
+}
+
+#textcontainer.text-move-left {
+    /* 从底部裁剪到顶部，像卷帘一样收起 */
+    clip-path: inset(0 0 100% 0);
+}
+
+/* ============================================
+   4. 动画元素容器
+   ============================================ */
+
+/* 动画容器 */
+.menu-item-animated-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* z-index: 40 - 在 content-container(30) 上方 */
+    z-index: 40;
+}
+
+/* 动画元素基础样式 */
+.menu-item-animated {
+    position: fixed;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: border-box;
+    /* 添加主题切换时的平滑过渡 */
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 起始状态：方块出现在原位置 */
+.menu-item-animated-start {
+    padding: 4px 8px !important;
+    line-height: 1.6;
+    font-size: var(--font-size-base);
+    color: var(--text-primary) !important;
+    background: transparent !important;
+    border: 2px solid var(--text-primary) !important;
+    border-radius: 2px;
+}
+
+/* 阶段1：移到右上角（文字保持横向） */
+.menu-item-animated-moving-right {
+    transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+    padding: 8px 12px;
+    border: 2px solid var(--text-primary);
+}
+
+/* 阶段2：向下延伸填满右侧 */
+.menu-item-animated-extending {
+    transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+    padding: 20px;
+    border: none;
+}
+
+/* 阶段3：文字旋转 + 背景变白 */
+.menu-item-animated-rotating {
+    background: #ffffff !important;
+    transition: background 0.5s ease;
+}
+
+/* 展开完成：全屏状态 */
+.menu-item-animated-expanded {
+    padding: 20px;
+    font-size: 1.2em;
+}
+
+/* 返回阶段1：准备返回 */
+.item-animated-deselect-start {
+    display: block;
+    position: fixed;
+}
+
+/* 返回阶段2/收缩中：缩小到原始文字大小（对应源码的 item-animated-deselect-middle） */
+.menu-item-animated-collapsing {
+    display: block;
+    position: fixed;
+    height: 1.25em;
+    line-height: 1.25em;
+    padding: 0 5px;
+    transition: all 1s;  /* 源码用的是1s */
+}
+
+/* 收缩时：隐藏Back按钮和描述（但保持在DOM中）*/
+.menu-item-animated-collapsing .menu-item-animated-back,
+.menu-item-animated-collapsing .menu-item-animated-description {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* 返回按钮 */
+.menu-item-animated-back {
+    display: inline-block;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-family: var(--font-primary);
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    pointer-events: auto; /* 确保按钮可点击 */
+}
+
+.menu-item-animated-back:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-5px);
+}
+
+.menu-item-animated-back span {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* 内容区域 */
+.menu-item-animated-inner {
+    position: relative;
+    max-width: 100%;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.menu-item-animated-title {
+    font-family: var(--font-primary);
+    font-size: 1.5em;
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.4;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    /* 初始状态：普通横向文字 */
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    transform-origin: center center;
+    transition: transform 0.5s ease, writing-mode 0s linear 0.25s;
+}
+
+/* 在 rotating 阶段：标题旋转为竖排 */
+.menu-item-animated-rotating .menu-item-animated-title {
+    /* 先旋转90度 */
+    transform: rotate(90deg);
+    /* 延迟后切换 writing-mode */
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.1em;
+    transition: transform 0.5s ease, writing-mode 0s linear 0s;
+}
+
+.menu-item-animated-expanded .menu-item-animated-title {
+    transform: rotate(0deg);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 给内容区域留出右侧空间（仅在展开后） */
+.menu-item-animated-expanded .menu-item-animated-inner {
+    padding-right: 220px;
+}
+
+.menu-item-animated-description {
+    font-family: var(--font-primary);
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--text-primary);
+    opacity: 0.9;
+}
+
+/* 防止内容溢出 */
+.menu-item-animated-start .menu-item-animated-inner {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-item-animated-expanding .menu-item-animated-inner,
+.menu-item-animated-expanded .menu-item-animated-inner {
+    white-space: normal;
+}

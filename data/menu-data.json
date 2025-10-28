@@ -1,0 +1,80 @@
+{
+  "columns": [
+    {
+      "id": "serendipity",
+      "title": "Computer is a feeling",
+      "items": [
+        {"name": "computational bricolage", "type": "code"},
+        {"name": "vanilla JavaScript", "type": "code"},
+        {"name": "boerhesi", "type": "code"},
+        {"name": "type typy typed", "type": "math"},
+        {"name": "collage", "type": "code"},
+        {"name": "zoomable", "type": "folder"},
+        {"name": "Hamming code", "type": "math"},
+        {"name": "complexity has to live somewhere", "type": "doc"},
+        {"name": "instance", "type": "code"},
+        {"name": "Box<T>", "type": "code"},
+        {"name": "Promise", "type": "code"},
+        {"name": "Option", "type": "code"},
+        {"name": "瑕疵× 风格√", "type": "math"}
+      ]
+    },
+    {
+      "id": "re-search",
+      "title": "AI is an installation",
+      "items": [
+        {"name": "latent-space", "type": "math"},
+        {"name": "connection", "type": "code"},
+        {"name": "failure", "type": "done"},
+        {"name": "视覚素子は笑う INTERCEPTER", "type": "doc"},
+        {"name": "all in canvas", "type": "code"},
+        {"name": "The phenomenology of dreams", "type": "math"},
+        {"name": "Chomsky's device", "type": "doc"}
+      ]
+    },
+    {
+      "id": "shell",
+      "title": "がいぶきおくそうち",
+      "items": [
+        {"name": "mapping", "type": "code"},
+        {"name": "image111", "type": "image", "src": "content/shell/image111/image111.png"},
+        {"name": "archive", "type": "text"},
+        {"name": "Retro-tech nostalgia", "type": "doc"}
+      ]
+    },
+    {
+      "id": "hyper",
+      "title": "Madeleine is a ghost",
+      "items": [
+        {"name": "html", "type": "code"},
+        {"name": "screenshots are the photographs of cyberspace", "type": "doc"}
+      ]
+    },
+    {
+      "id": "installation",
+      "title": "Ideas are not objects",
+      "items": [
+        {"name": "ideas are objects", "type": "folder"},
+        {"name": "para-box para-dox", "type": "math"},
+        {"name": "「ネットは広大で無限だ」", "type": "code"}
+      ]
+    },
+    {
+      "id": "complex",
+      "title": "Symposium",
+      "items": [
+        {"name": "タチコマの家出 映画监督の梦 ESCAPE FROM", "type": "video"},
+        {"name": "The secrets of psalm 46", "type": "folder"}
+      ]
+    },
+    {
+      "id": "meta",
+      "title": "level has level",
+      "items": [
+        {"name": "surf the internet", "type": "doc"},
+        {"name": "example-based", "type": "doc"},
+        {"name": "baba is you", "type": "code"}
+      ]
+    }
+  ]
+}

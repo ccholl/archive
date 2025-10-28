@@ -1,0 +1,20 @@
+{
+  "selectedFont": "ibm-plex",
+  "availableFonts": [
+    {
+      "id": "ibm-plex",
+      "label": "IBM Plex Mono",
+      "cssValue": "'IBM Plex Mono', monospace"
+    },
+    {
+      "id": "courier",
+      "label": "Courier",
+      "cssValue": "'Courier New', monospace"
+    },
+    {
+      "id": "lato",
+      "label": "Lato",
+      "cssValue": "'Lato', Arial, sans-serif"
+    }
+  ]
+}

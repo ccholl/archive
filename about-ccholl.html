@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About ccholl</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #fff;
+            color: #000;
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .intro-container {
+            max-width: 600px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            text-shadow: none;
+        }
+
+        .typing-text {
+            animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+            border-right: 3px solid #000;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #000; }
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: transparent;
+            color: #000;
+            border: 1px solid #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .content-section {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .glitch {
+            animation: none;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: none; }
+            100% { text-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">← Back to Archive</a>
+
+    <div class="intro-container">
+        <h1 class="glitch">ccholl.exe</h1>
+
+        <div class="typing-text">
+            > whoami
+        </div>
+
+        <div class="content-section">
+            <p>我来到那个庭院，它真得就像我之前做课程作业会渲染出的那种庭院。非常安静，听得到我的脚步声。我到了一个工作台,上面挂着很多草图，无一例外都与树枝的形态有关。只是也非常清楚地知道这些同时无关树的形态，而是关乎人体。大脑、心脏、呼吸系统、骨骼、脊椎、突触、树突、轴突、神经元、血管…，都在树的隐喻中被表现出来。我静静地在这个地方逗留了很久。那时，我并不知道Brian的演讲。这种静谧的感受将我拉回到早前我留恋于家附近公园的时候。那是一个可以写进城市景观设计档案的河畔公园。我乐衷于在那里观察白鹭和夜鹭竞争生态位时微妙的平衡，看它们如何敏捷地抓鱼，还有在禁止垂钓的告示牌旁边钓鱼的大爷。而我最喜欢做的，还是看着那些肆意生长肆意凋零的花草树木。我不知道我当时为何会把自己弄得精疲力竭。我被那个念头缠绕，我想知道为什么基因表达细胞分裂的微观过程竟与宏观上树叶树枝的脉络形态如此相似，呈现出如此简洁又丰富的对称性。叶脉是植物的神经。它们仿佛共用一套规则，它们当然共用一套规则。它们为何在结构上呈现出这种惊人的一致性，which we may call it aethestic。我不想查找任何资料，只愿意自己想出来。其实知不知道也不重要。不管怎么说，这连同树木、河畔、白鹭等等一起印刻在我的记忆中。而我到现在发现，我当时做的事情和我在这个游戏做的事情，何其相似。只是见证者的小岛上除了我好像并无任何可移动的有机体。而我现在，也同样不想看攻略。</p>
+            <br>
+            <p>Cause The Treasure is Right There</p>
+        </div>
+
+        <div style="margin-top: 40px; font-size: 0.8em; opacity: 0.7;">
+            <p>Press F5 to reload reality</p>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive effects
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            document.body.style.background = `radial-gradient(circle at ${x*100}% ${y*100}%, #f5f5f5 0%, #ffffff 50%)`;
+        });
+
+        // Typing effect for the prompt
+        const typingElement = document.querySelector('.typing-text');
+        const originalText = '> whoami';
+        let i = 0;
+
+        function typeWriter() {
+            if (i < originalText.length) {
+                typingElement.innerHTML = originalText.substring(0, i + 1) + '|';
+                i++;
+                setTimeout(typeWriter, 100);
+            } else {
+                typingElement.innerHTML = originalText;
+                setTimeout(() => {
+                    typingElement.style.borderRight = 'none';
+                }, 500);
+            }
+        }
+
+        setTimeout(typeWriter, 1000);
+    </script>
+</body>
+</html>

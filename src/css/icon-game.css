@@ -1,0 +1,47 @@
+/* Icon Game Mode - Pushable Icons */
+
+/* 可推动的图标状态 */
+.pushable-icon {
+    cursor: grab;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.pushable-icon:active {
+    cursor: grabbing;
+}
+
+/* 玩家样式 */
+.icon-game-player {
+    box-shadow: 0 4px 8px rgba(255, 100, 100, 0.3);
+    user-select: none;
+}
+
+/* 游戏模式提示 */
+.icon-game-hud {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(9, 5, 5, 0.8);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-small);
+    z-index: 250;
+}
+
+.icon-game-hud h3 {
+    margin: 0 0 10px 0;
+    font-size: var(--font-size-base);
+}
+
+.icon-game-hud p {
+    margin: 5px 0;
+    opacity: 0.8;
+}
+
+/* 深色主题适配 */
+:root[data-theme="dark"] .icon-game-hud {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+}
