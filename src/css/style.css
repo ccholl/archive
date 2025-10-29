@@ -452,14 +452,14 @@ div#textcontainer h2 {
 .current-title {
     position: fixed;
     top: 40px;
-    right: 40px;
+    right: 20px;
     z-index: 999;
     margin: 0;
     font-family: var(--font-primary);
     font-size: var(--font-size-large);
     color: rgba(0, 0, 0, 0.7);
     background: rgba(255, 255, 255, 0.9);
-    padding: 12px 20px;
+    padding: 8px 12px;
     border-radius: 4px;
 }
 
