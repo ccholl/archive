@@ -291,9 +291,9 @@ export class MenuItemAnimation {
             this.animatedElement.classList.add('menu-item-animated-moving-right');
 
             // 设置目标位置：右上角
-            this.animatedElement.style.left = 'calc(100vw - 220px)';
+            this.animatedElement.style.left = 'calc(100vw - 130px)';
             this.animatedElement.style.top = '0';
-            this.animatedElement.style.width = '200px';
+            this.animatedElement.style.width = '120px';
             this.animatedElement.style.height = 'auto';
         }, 100);
 
@@ -932,9 +932,9 @@ export class MenuItemAnimation {
 
         // 设置到最终位置（右上角，竖排）
         animatedElement.style.position = 'fixed';
-        animatedElement.style.left = 'calc(100vw - 220px)';
+        animatedElement.style.left = 'calc(100vw - 130px)';
         animatedElement.style.top = '0';
-        animatedElement.style.width = '200px';
+        animatedElement.style.width = '120px';
         animatedElement.style.height = '100vh';
         animatedElement.style.background = '#ffffff';
         animatedElement.style.zIndex = CONFIG.zIndex.menuAnimation;
