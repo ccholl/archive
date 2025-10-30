@@ -206,7 +206,7 @@
 
 /* 给内容区域留出右侧空间（仅在展开后） */
 .menu-item-animated-expanded .menu-item-animated-inner {
-    padding-right: 130px;
+    padding-right: 220px;
 }
 
 .menu-item-animated-description {
